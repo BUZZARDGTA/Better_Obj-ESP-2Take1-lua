@@ -1,5 +1,5 @@
 So this is not a script originally created from me (idk who made it), but here is what I've done to it:
-- Added a lot of neww object ESPs (and will continue doing so as far as I'm playing GTA V).
+- Added a lot of new object ESPs (and will continue doing so as far as I'm playing GTA V).
 - Reduced source code.
 - Source code now uses named hashes instead of hex hashes. Way Cleaner and easier to read/maintain like that.
 
