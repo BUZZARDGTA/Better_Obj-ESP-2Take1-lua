@@ -3,12 +3,21 @@ local INI = IniParser("scripts\\obj-esp\\Settings.ini")
 local _D = 500.0
 local _CMAP = {}
 local _FMAP = {}
-local COLOR <const> = {
-    DEFAULT       = 0xcc6eeb12,
-    COLOR_LANTERN = 0xcc0096FF,
-    RED           = 0xff0000ff,
-}
 
+
+local function rgba_to_int(R, G, B, A)
+    A = A or 255
+    return ((R&0x0ff)<<0x00)|((G&0x0ff)<<0x08)|((B&0x0ff)<<0x10)|((A&0x0ff)<<0x18)
+end
+
+local COLOR <const> = {
+    DEFAULT = rgba_to_int(128, 128, 128, 255),       -- GREY
+    -- DESTROYABLE = rgba_to_int(255, 255, 0, 155),  -- YELLOW It was a good idea till I figured some entitys have god mod on/off
+    HACKABLE = rgba_to_int(0, 255, 0, 255),          -- GREEN
+    COLLECTIBLE = rgba_to_int(114, 204, 114, 255),   -- GREEN
+    RED = rgba_to_int(255, 0, 0, 255),               -- RED
+    ORANGE = rgba_to_int(255, 165, 0, 255),          -- ORANGE
+}
 
 local PARENT = menu.add_feature("Object ESP", "parent", 0)
 
@@ -42,11 +51,11 @@ create_feat = function(n, d)
     local function process_keys(data)
         local processed_data = {}
         for k, v in pairs(data) do
-            local hash_key = gameplay.get_hash_key(k)
+            local hashKey = gameplay.get_hash_key(k)
             if not v.color then
                 v.color = COLOR.DEFAULT
             end
-            processed_data[hash_key] = v
+            processed_data[hashKey] = v
         end
         return processed_data
     end
@@ -72,7 +81,7 @@ end
 
 
 create_feat("LD Organics", {
-    ["reh_prop_reh_bag_weed_01a"] = {label = "LD Organics"},
+    ["reh_prop_reh_bag_weed_01a"] = {label = "LD Organics", color = COLOR.COLLECTIBLE},
 })
 
 create_feat("Peyotes", {
@@ -87,19 +96,19 @@ create_feat("Peyotes", {
 })
 
 create_feat("Jack O' Lanterns", {
-    ["reh_prop_reh_lantern_pk_01a"] = {label = "Jack O' Lantern", color = COLOR.LANTERN},
-    ["reh_prop_reh_lantern_pk_01b"] = {label = "Jack O' Lantern", color = COLOR.LANTERN},
-    ["reh_prop_reh_lantern_pk_01c"] = {label = "Jack O' Lantern", color = COLOR.LANTERN},
+    ["reh_prop_reh_lantern_pk_01a"] = {label = "Jack O' Lantern", color = COLOR.ORANGE},
+    ["reh_prop_reh_lantern_pk_01b"] = {label = "Jack O' Lantern", color = COLOR.ORANGE},
+    ["reh_prop_reh_lantern_pk_01c"] = {label = "Jack O' Lantern", color = COLOR.ORANGE},
 })
 
 create_feat("Movie Props", {
-    ["sum_prop_ac_alienhead_01a"]    = {label = "Movie Prop: Alien Head"},
-    ["sum_prop_ac_clapperboard_01a"] = {label = "Movie Prop: Clapper"},
-    ["sum_prop_ac_filmreel_01a"]     = {label = "Movie Prop: Film Reel"},
-    ["sum_prop_ac_headdress_01a"]    = {label = "Movie Prop: Head Dress"},
-    ["sum_prop_ac_monstermask_01a"]  = {label = "Movie Prop: Monster Mask"},
-    ["sum_prop_ac_mummyhead_01a"]    = {label = "Movie Prop: Mummy Head"},
-    ["sum_prop_ac_wifaaward_01a"]    = {label = "Movie Prop: WIFA Award"},
+    ["sum_prop_ac_alienhead_01a"]    = {label = "Movie Prop: Alien Head", color = COLOR.COLLECTIBLE},
+    ["sum_prop_ac_clapperboard_01a"] = {label = "Movie Prop: Clapper", color = COLOR.COLLECTIBLE},
+    ["sum_prop_ac_filmreel_01a"]     = {label = "Movie Prop: Film Reel", color = COLOR.COLLECTIBLE},
+    ["sum_prop_ac_headdress_01a"]    = {label = "Movie Prop: Head Dress", color = COLOR.COLLECTIBLE},
+    ["sum_prop_ac_monstermask_01a"]  = {label = "Movie Prop: Monster Mask", color = COLOR.COLLECTIBLE},
+    ["sum_prop_ac_mummyhead_01a"]    = {label = "Movie Prop: Mummy Head", color = COLOR.COLLECTIBLE},
+    ["sum_prop_ac_wifaaward_01a"]    = {label = "Movie Prop: WIFA Award", color = COLOR.COLLECTIBLE},
 })
 
 create_feat("Buried Stash", {
@@ -107,22 +116,22 @@ create_feat("Buried Stash", {
 })
 
 create_feat("Signal Jammer", {
-    ["ch_prop_ch_mobile_jammer_01x"] = {label = "Signal Jammer"},
+    ["ch_prop_ch_mobile_jammer_01x"] = {label = "Signal Jammer", color = COLOR.COLLECTIBLE},
 })
 
 create_feat("Action Figures", {
-    ["vw_prop_vw_colle_alien"]      = {label = "Action Figure: Alien"},
-    ["vw_prop_vw_colle_beast"]      = {label = "Action Figure: Beast"},
-    ["vw_prop_vw_colle_imporage"]   = {label = "Action Figure: Impotent Rage"},
-    ["vw_prop_vw_colle_pogo"]       = {label = "Action Figure: Pogo"},
-    ["vw_prop_vw_colle_prbubble"]   = {label = "Action Figure: Princess Robot Bubblegum"},
-    ["vw_prop_vw_colle_rsrcomm"]    = {label = "Action Figure: RSR Comm"},
-    ["vw_prop_vw_colle_rsrgeneric"] = {label = "Action Figure: RSR Generic"},
-    ["vw_prop_vw_colle_sasquatch"]  = {label = "Action Figure: Sasquatch"},
+    ["vw_prop_vw_colle_alien"]      = {label = "Action Figure: Alien", color = COLOR.COLLECTIBLE},
+    ["vw_prop_vw_colle_beast"]      = {label = "Action Figure: Beast", color = COLOR.COLLECTIBLE},
+    ["vw_prop_vw_colle_imporage"]   = {label = "Action Figure: Impotent Rage", color = COLOR.COLLECTIBLE},
+    ["vw_prop_vw_colle_pogo"]       = {label = "Action Figure: Pogo", color = COLOR.COLLECTIBLE},
+    ["vw_prop_vw_colle_prbubble"]   = {label = "Action Figure: Princess Robot Bubblegum", color = COLOR.COLLECTIBLE},
+    ["vw_prop_vw_colle_rsrcomm"]    = {label = "Action Figure: RSR Comm", color = COLOR.COLLECTIBLE},
+    ["vw_prop_vw_colle_rsrgeneric"] = {label = "Action Figure: RSR Generic", color = COLOR.COLLECTIBLE},
+    ["vw_prop_vw_colle_sasquatch"]  = {label = "Action Figure: Sasquatch", color = COLOR.COLLECTIBLE},
 })
 
 create_feat("Playing Cards", {
-    ["vw_prop_vw_lux_card_01a"] = {label = "Playing Card"},
+    ["vw_prop_vw_lux_card_01a"] = {label = "Playing Card", color = COLOR.COLLECTIBLE},
 })
 
 create_feat("ULP FIB Hardware", {
@@ -140,18 +149,18 @@ create_feat("ULP Fuses", {
 })
 
 create_feat("Perico Heist Prep", {
-    ["h4_prop_h4_cash_stack_01a"]   = {label = "Cash"},
-    ["h4_prop_h4_coke_stack_01a"]   = {label = "Coke"},
-    ["h4_prop_h4_weed_stack_01a"]   = {label = "Weed"},
-    ["h4_prop_h4_gold_stack_01a"]   = {label = "Gold"},
-    ["h4_prop_h4_painting_01a"]     = {label = "Painting"},
-    ["h4_prop_h4_painting_01b"]     = {label = "Painting"},
-    ["h4_prop_h4_painting_01c"]     = {label = "Painting"},
-    ["h4_prop_h4_painting_01d"]     = {label = "Painting"},
-    ["h4_prop_h4_painting_01e"]     = {label = "Painting"},
-    ["h4_prop_h4_painting_01f"]     = {label = "Painting"},
-    ["h4_prop_h4_painting_01g"]     = {label = "Painting"},
-    ["h4_prop_h4_painting_01h"]     = {label = "Painting"},
+    ["h4_prop_h4_cash_stack_01a"]   = {label = "Cash", color = COLOR.COLLECTIBLE},
+    ["h4_prop_h4_coke_stack_01a"]   = {label = "Coke", color = COLOR.COLLECTIBLE},
+    ["h4_prop_h4_weed_stack_01a"]   = {label = "Weed", color = COLOR.COLLECTIBLE},
+    ["h4_prop_h4_gold_stack_01a"]   = {label = "Gold", color = COLOR.COLLECTIBLE},
+    ["h4_prop_h4_painting_01a"]     = {label = "Painting", color = COLOR.COLLECTIBLE},
+    ["h4_prop_h4_painting_01b"]     = {label = "Painting", color = COLOR.COLLECTIBLE},
+    ["h4_prop_h4_painting_01c"]     = {label = "Painting", color = COLOR.COLLECTIBLE},
+    ["h4_prop_h4_painting_01d"]     = {label = "Painting", color = COLOR.COLLECTIBLE},
+    ["h4_prop_h4_painting_01e"]     = {label = "Painting", color = COLOR.COLLECTIBLE},
+    ["h4_prop_h4_painting_01f"]     = {label = "Painting", color = COLOR.COLLECTIBLE},
+    ["h4_prop_h4_painting_01g"]     = {label = "Painting", color = COLOR.COLLECTIBLE},
+    ["h4_prop_h4_painting_01h"]     = {label = "Painting", color = COLOR.COLLECTIBLE},
     ["h4_prop_h4_bag_hook_01a"]     = {label = "Hook"},
     ["h4_prop_h4_bolt_cutter_01a"]  = {label = "Bolt Cutter"},
     ["h4_prop_h4_card_hack_01a"]    = {label = "Fingerprint Cloner"},
@@ -159,7 +168,7 @@ create_feat("Perico Heist Prep", {
     ["h4_prop_h4_elecbox_01a"]      = {label = "Electrical Box"},
     ["h4_prop_h4_gascutter_01a"]    = {label = "Cutter"},
     ["h4_prop_h4_jammer_01a"]       = {label = "Sonar Jammer"},
-    ["h4_prop_h4_loch_monster"]     = {label = "Nessy", color = COLOR.RED},
+    ["h4_prop_h4_loch_monster"]     = {label = "Nessy", color = COLOR.BLUE},
     ["h4_prop_h4_securitycard_01a"] = {label = "Keycard"},
 })
 
@@ -196,9 +205,9 @@ create_feat("Snowmen", {
 
 -- these are probably the media collections
 create_feat("USB Drives", {
-    ["sf_prop_sf_usb_drive_01a"] = {label = "USB Drive (Record A Studio - black)"},
-    ["tr_prop_tr_usb_drive_01a"] = {label = "USB Drive (hacking device)"},
-    ["tr_prop_tr_usb_drive_02a"] = {label = "USB Drive (CircoLoco Records)"},
+    ["sf_prop_sf_usb_drive_01a"] = {label = "USB Drive (Record A Studio - not sure)"},
+    ["tr_prop_tr_usb_drive_01a"] = {label = "USB Drive (hacking device)", color = COLOR.HACKABLE},
+    ["tr_prop_tr_usb_drive_02a"] = {label = "USB Drive (CircoLoco Records)", color = COLOR.COLLECTIBLE},
 })
 
 create_feat("Chests", {
@@ -224,17 +233,17 @@ create_feat("Letter Scrap (Story)", {
 })
 
 create_feat("G's Cache", {
-    ["prop_mp_drug_pack_blue"] = {label = "G's Cache"},
+    ["prop_mp_drug_pack_blue"] = {label = "G's Cache", color = COLOR.COLLECTIBLE},
     ["prop_mp_drug_pack_red"]  = {label = "G's Cache - Not sure"},
-    ["prop_mp_drug_package"]   = {label = "G's Cache"},
+    ["prop_mp_drug_package"]   = {label = "G's Cache", color = COLOR.COLLECTIBLE},
 })
 
 create_feat("LS Tags", {
-    ["m24_1_prop_m41_bdgr_pstr_01a"]   = {label = "LS Tag"},
-    ["m24_1_prop_m41_cnt_pstr_01a"]    = {label = "LS Tag"},
-    ["m24_1_prop_m41_dg_pstr_01a"]     = {label = "LS Tag"},
-    ["m24_1_prop_m41_life_pstr_01a"]   = {label = "LS Tag"},
-    ["m24_1_prop_m41_weazel_pstr_01a"] = {label = "LS Tag"},
+    ["m24_1_prop_m41_bdgr_pstr_01a"]   = {label = "LS Tag", color = COLOR.COLLECTIBLE},
+    ["m24_1_prop_m41_cnt_pstr_01a"]    = {label = "LS Tag", color = COLOR.COLLECTIBLE},
+    ["m24_1_prop_m41_dg_pstr_01a"]     = {label = "LS Tag", color = COLOR.COLLECTIBLE},
+    ["m24_1_prop_m41_life_pstr_01a"]   = {label = "LS Tag", color = COLOR.COLLECTIBLE},
+    ["m24_1_prop_m41_weazel_pstr_01a"] = {label = "LS Tag", color = COLOR.COLLECTIBLE},
 })
 
 create_feat("Security Devices (Keypads, Fingerprints, ...)", {
@@ -248,8 +257,8 @@ create_feat("Security Devices (Keypads, Fingerprints, ...)", {
     ["ch_prop_fingerprint_scanner_01d"]       = {label = "Fingerprint Scanner"},
     ["ch_prop_fingerprint_scanner_01e"]       = {label = "Fingerprint Scanner"},
     ["ch_prop_fingerprint_scanner_error_01b"] = {label = "Fingerprint Scanner"},
-    ["h4_prop_h4_fingerkeypad_01a"]           = {label = "Keypad (to hack)", color = COLOR}, -- It's probably one of the two but idk which one exactly.
-    ["h4_prop_h4_fingerkeypad_01b"]           = {label = "Keypad (to hack)", color = COLOR}, -- It's probably one of the two but idk which one exactly.
+    ["h4_prop_h4_fingerkeypad_01a"]           = {label = "Keypad (to hack)", color = COLOR.HACKABLE}, -- It's probably one of the two but idk which one exactly.
+    ["h4_prop_h4_fingerkeypad_01b"]           = {label = "Keypad (to hack)", color = COLOR.HACKABLE}, -- It's probably one of the two but idk which one exactly.
     --["h4_prop_h4_ld_keypad_01"]             = {label = "Keypad e8c9c338"},
     --["h4_prop_h4_ld_keypad_01b"]            = {label = "Keypad 7e417fdc"},
     --["h4_prop_h4_ld_keypad_01c"]            = {label = "Keypad 477f1258"},
@@ -339,6 +348,7 @@ create_feat("Security Cameras / CCTV", {
     ["ch_prop_ch_cctv_cam_01a"]               = {label = "CCTV"},
     ["ch_prop_ch_cctv_cam_02a"]               = {label = "CCTV"},
     ["hei_prop_bank_cctv_01"]                 = {label = "CCTV"},
+    ["hei_prop_bank_cctv_02"]                 = {label = "CCTV"},
     ["m24_1_prop_m24_1_carrier_bank_cctv_01"] = {label = "CCTV"},
     ["m24_1_prop_m24_1_carrier_bank_cctv_02"] = {label = "CCTV"},
     ["p_cctv_s"]                              = {label = "CCTV"},
