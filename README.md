@@ -3,6 +3,10 @@
 This is a script originally created from `anonymouspleb`, but here is what I've added/improved to it:
 - Added a lot of new object ESPs (and will continue doing so as far as I'm playing GTA V).
 - Added coloration to objects by type.
+- Added support for multiple object hashes. (The ESP will dynamically blink every second to the next one.)
+- Added Setting "Load Settings"
+- Added Setting "IPL Precision" (This setting hides objects that should only be visible in their designated IPL locations, like the "Buried Stash" in Cayo Perico. It ensures that ESP only displays these objects in their intended IPL locations.)
+- Added To keep things organized, I’ve created subfolders for each type of ESP. Now, all ESP options are neatly arranged in their respective directories.
 - Moved `Settings.ini` file to the right location. (script's folder)
 - Reduced source code (removed all hard-codded default colorisations, and maybe more that I've forgot about).
 - Improved source code now uses named hashes instead of hex hashes. That's way cleaner and easier to read/maintain like that.
