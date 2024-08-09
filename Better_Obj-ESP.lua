@@ -439,6 +439,10 @@ create_obj_feat("LS Tags", {
     ["m24_1_prop_m41_life_pstr_01a"]   = {label = "LS Tag", color = COLOR.COLLECTIBLE},
     ["m24_1_prop_m41_weazel_pstr_01a"] = {label = "LS Tag", color = COLOR.COLLECTIBLE},
 }, dailyCollectiblesOnlineMenu_Feat)
+create_obj_feat("Spray Can Crate", {
+    ["m24_1_prop_m41_crate_spraycan_01a"] = {label = "Spray Can Crate", color = COLOR.COLLECTIBLE},
+    --["m24_1_prop_m41_spraycan_01a"]     = {label = "Spray Can", color = COLOR.COLLECTIBLE},
+}, dailyCollectiblesOnlineMenu_Feat)
 create_obj_feat("G's Cache", {
     ["prop_mp_drug_pack_blue"] = {label = "G's Cache", color = COLOR.COLLECTIBLE},
     ["prop_mp_drug_pack_red"]  = {label = "G's Cache", color = COLOR.COLLECTIBLE},
@@ -586,6 +590,7 @@ create_obj_feat("Madrazo Hits", {
     ["g_f_y_families_01"]  = {label = "Madrazo Hit", color = COLOR.ENNEMY},
     ["g_m_m_armlieut_01"]  = {label = "Madrazo Hit", color = COLOR.ENNEMY},
     ["g_m_y_salvaboss_01"] = {label = "Madrazo Hit", color = COLOR.ENNEMY},
+    ["s_m_m_ccrew_03"]     = {label = "Madrazo Hit", color = COLOR.ENNEMY},
 }, missionsHelperOnlineMenu_Feat)
 --]]
 create_obj_feat("Agency Security Contracts", {
