@@ -354,9 +354,9 @@ create_obj_feat("Action Figures", {
     ["vw_prop_vw_colle_imporage"]   = {label = "Action Figure: Impotent Rage", color = COLOR.COLLECTIBLE},
     ["vw_prop_vw_colle_pogo"]       = {label = "Action Figure: Pogo", color = COLOR.COLLECTIBLE},
     ["vw_prop_vw_colle_prbubble"]   = {label = "Action Figure: Princess Robot Bubblegum", color = COLOR.COLLECTIBLE},
-    ["vw_prop_vw_colle_rsrcomm"]    = {label = "Action Figure: RSR Comm", color = COLOR.COLLECTIBLE},
-    ["vw_prop_vw_colle_rsrgeneric"] = {label = "Action Figure: RSR Generic", color = COLOR.COLLECTIBLE},
-    ["vw_prop_vw_colle_sasquatch"]  = {label = "Action Figure: Sasquatch", color = COLOR.COLLECTIBLE},
+    ["vw_prop_vw_colle_rsrcomm"]    = {label = "Action Figure: Republican Space Ranger (Commander)", color = COLOR.COLLECTIBLE},
+    ["vw_prop_vw_colle_rsrgeneric"] = {label = "Action Figure: Republican Space Ranger (Generic)", color = COLOR.COLLECTIBLE},
+    ["vw_prop_vw_colle_sasquatch"]  = {label = "Action Figure: Sasquatch (Bigfoot)", color = COLOR.COLLECTIBLE},
 }, oneTimecollectionsOnlineMenu_Feat)
 create_obj_feat("Ghosts Exposed", {
     ["m23_1_prop_m31_ghostrurmeth_01a"]  = {label = "Ghost Exposed (Rurmeth)", color = COLOR.COLLECTIBLE},
@@ -429,8 +429,6 @@ create_obj_feat("Shipwreck Chests", {
 }, dailyCollectiblesOnlineMenu_Feat)
 create_obj_feat("Treasure Chests", {
     ["h4_prop_h4_chest_01a"]      = {label = "Treasure Chest", color = COLOR.COLLECTIBLE},
-    ["h4_prop_h4_chest_01a_land"] = {label = "Treasure Chest - Not Sure (h4_prop_h4_chest_01a_land)", color = COLOR.COLLECTIBLE},
-    ["h4_prop_h4_chest_01a_uw"]   = {label = "Treasure Chest - Not Sure (h4_prop_h4_chest_01a_uw)", color = COLOR.COLLECTIBLE},
 }, dailyCollectiblesOnlineMenu_Feat)
 create_obj_feat("LS Tags", {
     ["m24_1_prop_m41_bdgr_pstr_01a"]   = {label = "LS Tag", color = COLOR.COLLECTIBLE},
@@ -508,7 +506,7 @@ create_obj_feat("Skeleton", {
     ["reh_prop_reh_skeleton_01a"] = {label = "Skeleton", color = COLOR.COLLECTIBLE},
 }, randomEventsOnlineMenu_Feat)
 create_obj_feat("Smuggler Plane", {
-    ["prop_security_case_01"] = {label = "Smuggler Plane (Briefcase) - Not Sure (prop_security_case_01)", color = COLOR.COLLECTIBLE},
+    ["prop_security_case_01"] = {label = "Smuggler Cache (Briefcase)", color = COLOR.COLLECTIBLE},
 }, randomEventsOnlineMenu_Feat)
 create_obj_feat("Smuggler Cache", {
     ["prop_flare_01"]               = {label = "Smuggler Flare", color = COLOR.COLLECTIBLE},
@@ -746,6 +744,10 @@ create_obj_feat("Chests", {
     ["xm_prop_x17_chest_closed"]    = {label = "Chest - Not Sure (xm_prop_x17_chest_closed)"},
     ["xm_prop_x17_chest_open"]      = {label = "Chest - Not Sure (xm_prop_x17_chest_open)"},
 }, othersMenu_Feat)
+create_obj_feat("Gun Van (GTA Online)", {
+    ["xm3_prop_xm3_crate_ammo_01a"] = {label = "Gun Van"},
+}, othersMenu_Feat)
+
 
 
 -- === Startup Load Default Settings === --
