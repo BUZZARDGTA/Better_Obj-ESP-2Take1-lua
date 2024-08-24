@@ -537,7 +537,7 @@ local missionsHelperOnlineMenu_Feat = menu.add_feature("Grand Theft Auto Online"
 local freemodeSideMissionsHelperOnlineMenu_Feat = menu.add_feature("Freemode Side Missions", "parent", missionsHelperOnlineMenu_Feat.id)
 create_obj_feat("Gang Attacks (Weapon Crates)", {
     ["prop_box_wood02a_pu"]  = {label = "Weapon Crate"},
-    ["prop_box_wood02a_mws"] = {label = "Weapon Crate (Merryweather) - Not Sure (prop_box_wood02a_mws)"},
+    ["prop_box_wood02a_mws"] = {label = "Weapon Crate (Merryweather)"},
 }, freemodeSideMissionsHelperOnlineMenu_Feat)
 
 -- === Missions Helper > Grand Theft Auto Online === --
