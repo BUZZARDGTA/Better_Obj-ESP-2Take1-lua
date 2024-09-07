@@ -369,8 +369,8 @@ create_obj_feat("Ghosts Exposed", {
         ["m24_1_prop_m41_ghost_dom_01a"] = {label = "Ghost (Dom)", color = COLOR.COLLECTIBLE},
     --]]
 }, oneTimecollectionsOnlineMenu_Feat)
-create_obj_feat("LD Organics Product", {
-    ["reh_prop_reh_bag_weed_01a"] = {label = "LD Organics Product", color = COLOR.COLLECTIBLE},
+create_obj_feat("LD Organics Products", {
+    ["reh_prop_reh_bag_weed_01a"] = {label = "LD Organics Products", color = COLOR.COLLECTIBLE},
 }, oneTimecollectionsOnlineMenu_Feat)
 create_obj_feat("Movie Props", {
     ["sum_prop_ac_filmreel_01a"]     = {label = "Movie Prop #1: Meltdown Film Reel", color = COLOR.COLLECTIBLE},
@@ -398,6 +398,11 @@ create_obj_feat("Snowmen", {
 create_obj_feat("Media Sticks", {
     ["sf_prop_sf_usb_drive_01a"] = {label = "Media Stick (Record A Studio)", color = COLOR.COLLECTIBLE},
     ["tr_prop_tr_usb_drive_02a"] = {label = "Media Stick (CircoLoco Records)", color = COLOR.COLLECTIBLE},
+}, oneTimecollectionsOnlineMenu_Feat)
+create_obj_feat("Treasure Hunt", {
+    ["xm_prop_x17_note_paper_01a"]  = {label = "Treasure Hunt (Clue #1) (Paper Note)"},
+    ["xm_prop_x17_chest_closed"]    = {label = "Treasure Hunt (Clue #1-3) (Closed Double-Action Revolver Chest)"},
+    ["xm_prop_x17_chest_open"]      = {label = "Treasure Hunt (Opened Double-Action Revolver Chest)"},
 }, oneTimecollectionsOnlineMenu_Feat)
 
 -- === Daily Collectibles === --
@@ -741,8 +746,6 @@ create_obj_feat("Health / Armor", {
 }, othersMenu_Feat)
 create_obj_feat("Chests", {
     ["ba_prop_battle_chest_closed"] = {label = "Chest - Not Sure (ba_prop_battle_chest_closed)"},
-    ["xm_prop_x17_chest_closed"]    = {label = "Chest - Not Sure (xm_prop_x17_chest_closed)"},
-    ["xm_prop_x17_chest_open"]      = {label = "Chest - Not Sure (xm_prop_x17_chest_open)"},
 }, othersMenu_Feat)
 create_obj_feat("Gun Van (GTA Online)", {
     ["xm3_prop_xm3_crate_ammo_01a"] = {label = "Gun Van"},
