@@ -400,9 +400,11 @@ create_obj_feat("Media Sticks", {
     ["tr_prop_tr_usb_drive_02a"] = {label = "Media Stick (CircoLoco Records)", color = COLOR.COLLECTIBLE},
 }, oneTimecollectionsOnlineMenu_Feat)
 create_obj_feat("Treasure Hunt", {
-    ["xm_prop_x17_note_paper_01a"]  = {label = "Treasure Hunt (Clue #1) (Paper Note)"},
-    ["xm_prop_x17_chest_closed"]    = {label = "Treasure Hunt (Clue #1-3) (Closed Double-Action Revolver Chest)"},
-    ["xm_prop_x17_chest_open"]      = {label = "Treasure Hunt (Opened Double-Action Revolver Chest)"},
+    ["xm_prop_x17_note_paper_01a"] = {label = "Treasure Hunt: Clue (Paper Note)", color = COLOR.COLLECTIBLE},
+    ["xm_prop_x17_shovel_01b"]     = {label = "Treasure Hunt: Clue #1-3 (Shovel)", color = COLOR.COLLECTIBLE},
+    ["xm_prop_x17_corpse_03"]      = {label = "Treasure Hunt: Clue #1-3 (Corpse)", color = COLOR.COLLECTIBLE},
+    ["xm_prop_x17_chest_open"]     = {label = "Treasure Hunt: Clue #1-3 (Opened Double-Action Revolver Chest)", color = COLOR.COLLECTIBLE},
+    ["xm_prop_x17_chest_closed"]   = {label = "Treasure Hunt: Closed Double-Action Revolver Chest", color = COLOR.COLLECTIBLE},
 }, oneTimecollectionsOnlineMenu_Feat)
 
 -- === Daily Collectibles === --
