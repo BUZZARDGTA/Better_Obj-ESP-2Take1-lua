@@ -370,7 +370,7 @@ create_obj_feat("Ghosts Exposed", {
     --]]
 }, oneTimecollectionsOnlineMenu_Feat)
 create_obj_feat("LD Organics Products", {
-    ["reh_prop_reh_bag_weed_01a"] = {label = "LD Organics Products", color = COLOR.COLLECTIBLE},
+    ["reh_prop_reh_bag_weed_01a"] = {label = "LD Organics Product", color = COLOR.COLLECTIBLE},
 }, oneTimecollectionsOnlineMenu_Feat)
 create_obj_feat("Movie Props", {
     ["sum_prop_ac_filmreel_01a"]     = {label = "Movie Prop #1: Meltdown Film Reel", color = COLOR.COLLECTIBLE},
